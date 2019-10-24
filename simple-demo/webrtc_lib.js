@@ -5,7 +5,7 @@ var remote_peer;
 var peerConnection;
 var caller = false;
 var serverConnection;
-var peerConnectionConfig = { 'iceServers': [{ 'url': 'stun:stun.services.mozilla.com' }, { 'url': 'stun:stun.l.google.com:19302' }] };
+var peerConnectionConfig;
 
 var peerIdVar;
 var local_stream_promise;
@@ -31,6 +31,9 @@ function getUserMediaError(error) {
 function connect_ws(){
 	videosrc = document.getElementById("video1");
 	ws_url = document.getElementById("signaller");
+	var peerconfigmsg = document.getElementById("peerconnectionconfig").value;
+	peerconfigmsg.trim();
+	peerConnectionConfig =  JSON.parse(peerconfigmsg);
     serverConnection = new WebSocket(ws_url.value);
     serverConnection.onmessage = gotMessageFromServer;
     serverConnection.onopen = ServerOpen;

@@ -1,27 +1,29 @@
 <html>
 
 <head>
-    <script src="webrtc_lib.js"></script>
+	<script src="webrtc_lib.js"></script>
 </head>
 
 <body>
-	
-	<input type="text" id="signaller" value="wss://157.245.101.160:8443" style="width:500"></input>
-	<input type="button" id="connect_ws" onclick="connect_ws()" value="Connect"></input>
-	<br/><br/><br/>
-	<textarea id="messages" rows="10" cols="100"> </textarea>
-	<br/><br/><br/>
-	<div>Our id is <b id="peer-id">unknown</b></div>
-	<br />
 
-    <video id="video1" autoplay muted style="width:800px;height:800px"></video>
+<input type="text" id="signaller" value="wss://157.245.101.160:8443" style="width:500"></input>
+<input type="button" id="connect_ws" onclick="connect_ws()" value="Connect"></input>
+<br/><br/><br/>
+<textarea id="messages" rows="10" cols="100"> </textarea>
+<br/><br/><br/>
+<div>Our id is <b id="peer-id">unknown</b></div>
+<br />
 
-    <br />
-	<br /><br />
-	<input type="text" id="remote-peer" value=""></input>
-    <input type="button" id="start" onclick="start_call()" value="Start Call"></input>
+<video id="video1" autoplay muted style="width:800px;height:800px"></video>
 
-    <script type="text/javascript">
+<br />
+<br /><br />
+<input type="text" id="remote-peer" value=""></input>
+<input type="button" id="start" onclick="start_call()" value="Start Call"></input>
+<br/><br/><br/>
+<textarea id="peerconnectionconfig" rows="10" cols="100">{ "iceServers": [{ "url": "stun:stun.services.mozilla.com" }, { "url": "stun:stun.l.google.com:19302" }] }</textarea>
+
+<script type="text/javascript">
         pageReady();
     </script>
 </body>
